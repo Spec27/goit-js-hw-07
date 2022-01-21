@@ -5,6 +5,7 @@ const createGallery = document.querySelector(".gallery");
 const galleryMarcup = createGalleryCards(galleryItems);
 createGallery.insertAdjacentHTML("beforeend", galleryMarcup);
 createGallery.addEventListener("click", openbigImgEl);
+
 function createGalleryCards(galleryItems) {
   return galleryItems
     .map(({ preview, original, description }) => {
@@ -32,8 +33,13 @@ function openbigImgEl(event) {
 }
 
 function openBigImgModal(event) {
-  const modal = basicLightbox.create(`<img width="1280" height="968" src= "${event.target.dataset.source}"></img>`);
-  modal.show();
+  const imgEl = basicLightbox.create(`<img width="1280" height="968" src= "${event.target.dataset.source}"></img>`);
+  imgEl.show();
+  document.addEventListener("keydown", (event) => {
+    if (event.code === "Escape") {
+      imgEl.close();
+    }
+  });
 }
 
 /* 
