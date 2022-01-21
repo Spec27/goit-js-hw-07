@@ -22,17 +22,17 @@ function createGalleryCards(galleryItems) {
 }
 
 function flippingThroughImages(event) {
-  event.preventDefault();
   if (!event.target.classList.contains("gallery__image")) {
     return;
   }
+  const lightbox = new SimpleLightbox(".gallery a", {
+    scrollZoom: true,
+    captionDelay: 250,
+    captionsData: "alt",
+    doubleTapZoom: 2,
+  });
 }
-const lightbox = new SimpleLightbox(".gallery a", {
-  scrollZoom: true,
-  captionDelay: 250,
-  captionsData: "alt",
-  doubleTapZoom: 2,
-});
+
 /* 
 1:Создание и рендер разметки по массиву данных galleryItems и 
  предоставленному шаблону элемента галереи. Используй готовый код из первого задания.
