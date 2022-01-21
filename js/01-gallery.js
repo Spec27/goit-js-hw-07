@@ -37,7 +37,7 @@ function openBigImgModal(event) {
   imgEl.show();
   document.addEventListener("keydown", (event) => {
     if (event.code === "Escape") {
-      imgEl.close();
+      modal.close();
     }
   });
 }
