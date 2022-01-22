@@ -33,7 +33,9 @@ function openbigImgEl(event) {
 }
 
 function openBigImgModal(event) {
-  const imgEl = basicLightbox.create(`<img width="1280" height="968" src= "${event.target.dataset.source}"></img>`);
+  const imgEl = basicLightbox.create(
+    `<img width="1280" height="968" alt="${event.target.alt}" src= "${event.target.dataset.source}" ></img>`
+  );
   imgEl.show();
   document.addEventListener("keydown", (event) => {
     if (event.code === "Escape") {
